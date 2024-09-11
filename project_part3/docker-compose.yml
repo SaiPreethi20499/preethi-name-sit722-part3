@@ -1,1 +1,28 @@
 # Your Solution
+
+version: '3.8'
+
+services:
+  book_catalog:
+    image: sit722task3preethi.azurecr.io/book_catalog:latest
+    build: 
+      context: ./book_catalog
+      dockerfile: Dockerfile
+    ports:
+      - "4000:8000"
+    environment:
+      - PORT=8000
+      - DATABASE_URL=postgresql://preethi_sit722_part3_8pdl_user:UhvS8m3vv0efCfKQLycMAS6UmvIz7QrT@dpg-crglf2jv2p9s73ad9cvg-a.oregon-postgres.render.com/preethi_sit722_part3_8pdl
+
+  inventory_management:
+    image: sit722task3preethi.azurecr.io/inventory_management:latest
+    build: 
+      context: ./inventory_management
+      dockerfile: Dockerfile
+    ports:
+      - "4001:8001"
+    environment:
+      - PORT=8001
+      - DATABASE_URL=postgresql://preethi_sit722_part3_8pdl_user:UhvS8m3vv0efCfKQLycMAS6UmvIz7QrT@dpg-crglf2jv2p9s73ad9cvg-a.oregon-postgres.render.com/preethi_sit722_part3_8pdl
+
+
